@@ -1,0 +1,31 @@
+// This outlines which rpc functions our serivce
+// names Calculator will expose. Including the input and
+// output type definitions.
+
+syntax = "proto3";
+
+package calculator;
+
+service Calculator {
+  // Expose an RPC function called Add
+  // that takes a message in the shape of AddResuest
+  // and returns a message in the shape of AddReply
+  rpc Add (AddRequest) returns (AddReply) {}
+}
+
+service CalculatorSub {
+  rpc Subtract (AddRequest) returns (AddReply) {}
+}
+
+// The AddRequest message shape, that had two properties
+// that are both 32 bit integers.
+message AddRequest {
+  int32 number1 = 1;
+  int32 number2 = 2;
+}
+
+// The AddReply message shape, that had one property
+// that is a 32 bit integer.
+message AddReply {
+  int32 result = 1;
+}
